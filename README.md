@@ -8,7 +8,7 @@ The system is designed to bypass the television's RF input chain entirely, allow
 - The CRT currently suffers from minor vertical fold-over and requires a recap.
 - A composite video injection point has been identified on the DT-505A for use with the Raspberry Pi's analog video output.
 
-# Video Injection Overview
+# Composite Injection Overview
 The simplest way to display video from a Raspberry Pi on an older television is to pass its composite output through an RF modulator and feed the resulting signal into the TV's antenna input. While convenient, this method introduces several unnecessary stages into the signal path, including RF modulation, the television's tuner and IF circuitry, and subsequent video demodulation. Each additional stage provides another opportunity for interference, noise, and signal degradation.
 
 This is especially noticeable on the Daytron DT-505A, where there is very little RF shielding between the mains transformer and portions of the television's signal-processing circuitry.
