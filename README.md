@@ -9,6 +9,7 @@ The system is designed to bypass the television's RF input chain entirely, allow
 - A composite video injection point has been identified on the DT-505A for use with the Raspberry Pi's analog video output.
 
 ![Initial test of SDL display with test image and waveform](projectImages/birdTestOne.png)
+Very quick initial test of SDL libraries to make sure everything works
 
 # Composite Injection Overview
 The simplest way to display video from a Raspberry Pi on an older television is to pass its composite output through an RF modulator and feed the resulting signal into the TV's antenna input. While convenient, this method introduces several unnecessary stages into the signal path, including RF modulation, the television's tuner and IF circuitry, and subsequent video demodulation. Each additional stage provides another opportunity for interference, noise, and signal degradation.
