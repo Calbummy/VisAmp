@@ -25,7 +25,7 @@ On the Daytron DT-505A, the composite injection point was identified immediately
 
 The original RF video path can either be permanently disconnected at this point or retained through the addition of a selector switch, allowing the television to alternate between its original RF input and the externally generated composite signal.
 
-#Integrated Bass/Guitar Amplifier + HiFi Stereo Amplifier
+# Integrated Bass/Guitar Amplifier + HiFi Stereo Amplifier
 Alongside the visualizer, this project includes a DIY class D instrument amplifier for bass and guitar, designed to match or exceed the quality of a ~$1000 commercial amp at a fraction of the parts cost. There will also be a smaller 150W stereo amp meant for listening to audio through normal speakers, not for musical instruments.
 
 Design overview:
