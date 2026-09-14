@@ -1,5 +1,5 @@
 # CRTMusicVisualizer
-A cross-platform C/SDL music display system featuring a lightweight Linux runtime for embedded computers and a more feature-rich Windows previewer for customizing layouts, album art, metadata, animations, and real-time visualizers before deployment to an analog CRT through direct composite video injection.
+A cross-platform C/SDL music display system featuring a lightweight Linux runtime for embedded computers and a more feature-rich Windows previewer for customizing layouts, album art, metadata, animations, and real-time visualizers before deployment to an analog CRT through direct composite video injection. The unit also houses a combined 500W bass/guitar amplifier and a 150W HiFi stereo amplifier.
 
 The system is designed to bypass the television's RF input chain entirely, allowing a Raspberry Pi or similar computer to provide a cleaner baseband NTSC video signal directly to the CRT's video circuitry.
 
@@ -7,6 +7,7 @@ The system is designed to bypass the television's RF input chain entirely, allow
 - Programming work is paused until the Daytron DT-505A is fully operational.
 - The CRT currently suffers from minor vertical fold-over and requires a recap.
 - A composite video injection point has been identified on the DT-505A for use with the Raspberry Pi's analog video output.
+- Amp design is in the architecture phase — power stage topology and instrument switching are decided; specific preamp chips are not yet chosen.
 
 ![Initial test of SDL display with test image and waveform](projectImages/birdTestOne.png)
 Very quick initial test of SDL libraries to make sure everything works (Final version will contain substantially nicer visuals)
@@ -23,3 +24,13 @@ After the television's tuner and IF stages recover the incoming broadcast signal
 On the Daytron DT-505A, the composite injection point was identified immediately after the video-output pin of the uPC1366C video processor. A through-hole AC-coupling capacitor sits in series with the video path at this location, providing a convenient point to isolate the original signal and connect the Raspberry Pi's composite output to the downstream video circuitry.
 
 The original RF video path can either be permanently disconnected at this point or retained through the addition of a selector switch, allowing the television to alternate between its original RF input and the externally generated composite signal.
+
+#Integrated Bass/Guitar Amplifier + HiFi Stereo Amplifier
+Alongside the visualizer, this project includes a DIY class D instrument amplifier for bass and guitar, designed to match or exceed the quality of a ~$1000 commercial amp at a fraction of the parts cost. There will also be a smaller 150W stereo amp meant for listening to audio through normal speakers, not for musical instruments.
+
+Design overview:
+- Single shared power stage: a discrete class D design built around an IRS20957S-family driver IC plus external power MOSFETs, rather than an integrated class D chip. This was chosen over simpler integrated options (e.g. TPA3255) specifically to hit a 500W target for bass.
+- One mono 500W power stage (not dual-channel), since bass and guitar are never used simultaneously — a hardware switch/interlock selects one instrument and its speaker output at a time, avoiding the cost, complexity, and shared-rail crosstalk of running two full-power channels.
+- Two fully separate preamp paths (bass and guitar), selected by the same switch, so each instrument's tone shaping can be tuned independently.
+- Design philosophy: keep the power amp stage clean and transparent, and let all tone character come from the preamps and pedals rather than the power stage itself.
+
