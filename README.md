@@ -1,4 +1,4 @@
-# CRTMusicVisualizer
+# VisAmp
 A cross-platform C/SDL music display system featuring a lightweight Linux runtime for embedded computers and a more feature-rich Windows previewer for customizing layouts, album art, metadata, animations, and real-time visualizers before deployment to an analog CRT through direct composite video injection. The unit also houses a combined 500W bass/guitar amplifier and a 150W HiFi stereo amplifier.
 
 The system is designed to bypass the television's RF input chain entirely, allowing a Raspberry Pi or similar computer to provide a cleaner baseband NTSC video signal directly to the CRT's video circuitry.
