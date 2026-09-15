@@ -35,9 +35,17 @@ The original RF video path can either be permanently disconnected at this point 
 # Integrated Bass/Guitar Amplifier + HiFi Stereo Amplifier
 Alongside the visualizer, this project includes a DIY class D instrument amplifier for bass and guitar, designed to match or exceed the quality of a ~$1000 commercial amp at a fraction of the parts cost. There will also be a smaller 150W stereo amp meant for listening to audio through normal speakers, not for musical instruments.
 
-Design overview:
-- Single shared power stage: a discrete class D design built around an IRS20957S-family driver IC plus external power MOSFETs, rather than an integrated class D chip. This was chosen over simpler integrated options (e.g. TPA3255) specifically to hit a 500W target for bass.
-- One mono 500W power stage (not dual-channel), since bass and guitar are never used simultaneously — a hardware switch/interlock selects one instrument and its speaker output at a time, avoiding the cost, complexity, and shared-rail crosstalk of running two full-power channels.
+**Bass/Guitar Amp Design Overview:**
+- Single shared amp power stage: a discrete class D design built around an IRS20957S-family driver IC plus external power MOSFETs, rather than an integrated class D chip. This was chosen over simpler integrated options (e.g., TPA3255) specifically to hit a 500W target for bass and for increased flexibility with design requirements.
+- One mono 500W @ 4 Ohms amp power stage, since bass and guitar are never used simultaneously. A hardware switch/interlock selects one instrument and its speaker output at a time, avoiding the cost, complexity, and shared-rail crosstalk of running two full-power channels.
 - Two fully separate preamp paths (bass and guitar), selected by the same switch, so each instrument's tone shaping can be tuned independently.
-- Design philosophy: keep the power amp stage clean and transparent, and let all tone character come from the preamps and pedals rather than the power stage itself.
+- Interacts with the CRT to display bass or guitar waveform at a safe signal level (Not sending ~500W signal into a small SBC)
+- Overall Design philosophy: keep the power amp stage clean and transparent, and let all tone character come from the preamps and pedals rather than the power stage itself.
+
+**HiFi Stereo Amp Design Overview:**
+- Shares the same 1kW power supply as the bass/guitar amp system and is designed to run at the same time as the other amp.
+- 150W stereo output preamp + amp meant for listening to audio through a set of traditional stereo speakers.
+- Rated for 150W @ 4 Ohms.
+- Audio can come in the form of a locally stored audio file, vinyl, or Bluetooth/Airplay.
+- Interacts with the CRT to create an audio waveform and displays the song's metadata.
 
