@@ -23,6 +23,8 @@ After the television's tuner and IF stages recover the incoming broadcast signal
 
 On the Daytron DT-505A, the composite injection point was identified immediately after the video-output pin of the uPC1366C video processor. A through-hole AC-coupling capacitor sits in series with the video path at this location, providing a convenient point to isolate the original signal and connect the Raspberry Pi's composite output to the downstream video circuitry.
 
+![Series AC decoupling cap for injection point](projectImages/IMG_2557.jpg)
+
 The original RF video path can either be permanently disconnected at this point or retained through the addition of a selector switch, allowing the television to alternate between its original RF input and the externally generated composite signal.
 
 # Integrated Bass/Guitar Amplifier + HiFi Stereo Amplifier
