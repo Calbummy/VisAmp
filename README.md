@@ -15,7 +15,7 @@ Very quick initial test of SDL libraries to make sure everything works (Final ve
 # DT-505A Restoration
 A vertical foldover issue is most likely caused by old, failing electrolytic capacitors in the vertical section of the circuit board. The initial foldover problem was diagnosed using a Heathkit test image generator in B&W mode, injected through the original RF input. The image below shows the top of the foldover problem where the curving of the image is present.
 
-![Vertical Foldover of Test Image](projectImages/IMG_2560.jpg)
+![Vertical Foldover of Test Image](projectImages/IMG_2560.jpeg)
 
 # Composite Injection Overview
 The simplest way to display video from a Raspberry Pi on an older television is to pass its composite output through an RF modulator and feed the resulting signal into the TV's antenna input. While convenient, this method introduces several unnecessary stages into the signal path, including RF modulation, the television's tuner and IF circuitry, and subsequent video demodulation. Each additional stage provides another opportunity for interference, noise, and signal degradation.
