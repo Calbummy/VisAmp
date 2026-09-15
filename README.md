@@ -13,7 +13,7 @@ The system is designed to bypass the television's RF input chain entirely, allow
 Very quick initial test of SDL libraries to make sure everything works (Final version will contain substantially nicer visuals)
 
 # DT-505A Restoration
-A vertical foldover issue is most likely caused by old, failing electrolytic capacitors in the vertical section of the circuit board. The initial foldover problem was diagnosed using a Heathkit test image generator in B&W mode, injected through the original RF input. The image below shows the top of the foldover problem where the curving of the image is present.
+A vertical foldover issue is most likely caused by old, failing electrolytic capacitors in the vertical section of the circuit board. The initial foldover problem was diagnosed using a Heathkit test image generator in B&W mode, injected through the original RF input. The image below shows the top of the foldover problem, where the curving of the image is present.
 
 ![Vertical Foldover of Test Image](projectImages/IMG_2560.jpeg)
 
@@ -39,7 +39,7 @@ Alongside the visualizer, this project includes a DIY class D instrument amplifi
 - Single shared amp power stage: a discrete class D design built around an IRS20957S-family driver IC plus external power MOSFETs, rather than an integrated class D chip. This was chosen over simpler integrated options (e.g., TPA3255) specifically to hit a 500W target for bass and for increased flexibility with design requirements.
 - One mono 500W @ 4 Ohms amp power stage, since bass and guitar are never used simultaneously. A hardware switch/interlock selects one instrument and its speaker output at a time, avoiding the cost, complexity, and shared-rail crosstalk of running two full-power channels.
 - Two fully separate preamp paths (bass and guitar), selected by the same switch, so each instrument's tone shaping can be tuned independently.
-- Interacts with the CRT to display bass or guitar waveform at a safe signal level (Not sending ~500W signal into a small SBC)
+- Interacts with the CRT to display bass or guitar waveform at a safe signal level (Not sending amplified signal into a small SBC)
 - Overall Design philosophy: keep the power amp stage clean and transparent, and let all tone character come from the preamps and pedals rather than the power stage itself.
 
 **HiFi Stereo Amp Design Overview:**
