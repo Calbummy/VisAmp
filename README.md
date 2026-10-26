@@ -9,7 +9,7 @@ The audio subsystem consists of a modular 500 W Class-D bass/guitar amplifier an
 - Programming work is paused until the Daytron DT-505A is fully operational.
 - The CRT currently suffers from minor vertical fold-over and requires a recap.
 - A composite video injection point has been identified on the DT-505A for use with the Raspberry Pi's analog video output.
-- 500W Combo Amp is in the schematic design — Initial Amp control/core and fault protection circuitry in place
+- 500W Combo Amp is in the schematic design phase — Initial Amp control/core and fault protection circuitry in place
 
   ![Initial test of SDL display with test image and waveform](projectImages/birdTestOne.png)
 Very quick initial test of SDL libraries to make sure everything works (Final version will contain substantially nicer visuals)
