@@ -34,20 +34,69 @@ On the Daytron DT-505A, the composite injection point was identified immediately
 
 The original RF video path can either be permanently disconnected at this point or retained through the addition of a selector switch, allowing the television to alternate between its original RF input and the externally generated composite signal.
 
-# Integrated Bass/Guitar Amplifier + HiFi Stereo Amplifier
-Alongside the visualizer, this project includes a DIY class D instrument amplifier for bass and guitar, designed to match or exceed the quality of a ~$1000 commercial amp at a fraction of the parts cost. There will also be a smaller 150W stereo amp meant for listening to audio through normal speakers, not for musical instruments.
+## Amplifier System Overview
 
-**Bass/Guitar Amp Design Overview:**
-- Single shared amp power stage: a discrete class D design built around an IRS20957S-family driver IC plus external power MOSFETs, rather than an integrated class D chip. This was chosen over simpler integrated options (e.g., TPA3255) specifically to hit a 500W target for bass and for increased flexibility with design requirements.
-- One mono 500W @ 4 Ohms amp power stage, since bass and guitar are never used simultaneously. A hardware switch/interlock selects one instrument and its speaker output at a time, avoiding the cost, complexity, and shared-rail crosstalk of running two full-power channels.
-- Two fully separate preamp paths (bass and guitar), selected by the same switch, so each instrument's tone shaping can be tuned independently.
-- Interacts with the CRT to display bass or guitar waveform at a safe signal level (Not sending amplified signal into a small SBC)
-- Overall Design philosophy: keep the power amp stage clean and transparent, and let all tone character come from the preamps and pedals rather than the power stage itself.
+Alongside the visualizer, this project includes a custom Class-D instrument amplifier for bass and guitar, designed with the goal of approaching high-end commercial amplifier performance at a substantially lower parts cost. The system also includes a separate 150 W stereo HiFi amplifier intended for conventional music playback through standard speakers.
 
-**HiFi Stereo Amp Design Overview:**
-- Shares the same 1kW power supply as the bass/guitar amp system and is designed to run at the same time as the other amp.
-- 150W stereo output preamp + amp meant for listening to audio through a set of traditional stereo speakers.
-- Rated for 150W @ 4 Ohms.
-- Audio can come in the form of a locally stored audio file, vinyl, or Bluetooth/Airplay.
-- Interacts with the CRT to create an audio waveform and displays the song's metadata.
+### Bass/Guitar Amplifier
 
+- **500 W mono output into 4 Ω**
+- Uses a shared power stage for both bass and guitar
+- Built around an **IRS20957S-family Class-D controller** with external power MOSFETs rather than a highly integrated amplifier IC
+- This architecture was chosen over simpler integrated solutions such as the TPA3255 to better support the 500 W output target and provide greater control over the power stage, protection circuitry, switching behavior, and overall system design
+
+Bass and guitar are not intended to operate simultaneously. A hardware selector/interlock switches the active instrument path and associated speaker output, allowing both instruments to share the same high-power output stage. This avoids the cost, thermal load, and power-supply requirements of implementing two independent 500 W amplifier channels.
+
+#### Modular Preamp Architecture
+
+Instrument tone shaping is handled through a modular preamp-card system rather than being permanently integrated into the main amplifier.
+
+Each preamp card can implement its own:
+
+- Input conditioning
+- Gain structure
+- EQ and filtering
+- Tone shaping
+- Effects or signal-processing circuitry
+- Instrument-specific voicing
+
+Separate bass and guitar cards can therefore be optimized independently while feeding the same clean 500 W power stage.
+
+The card-based architecture also allows new preamp designs to be developed and swapped without redesigning the main amplifier. Future cards could support different tonal characteristics, active EQ designs, effects, alternate instrument inputs, analog modeling, or DSP-based processing.
+
+The overall design philosophy is to keep the Class-D power stage as clean and transparent as practical while allowing the selected preamp card and external pedals to determine the instrument's tonal character.
+
+#### CRT Integration
+
+A conditioned low-level version of the instrument signal is routed to the visualization system so the CRT can display the bass or guitar waveform in real time.
+
+The visualization interface is isolated from the high-power speaker output so that amplifier-level voltages are never applied directly to the Raspberry Pi or other embedded computer.
+
+---
+
+### HiFi Stereo Amplifier
+
+The system also includes a separate stereo amplifier intended for general music playback through conventional loudspeakers rather than musical-instrument amplification.
+
+- **150 W per channel into 4 Ω**
+- Operates independently from the bass/guitar amplifier
+- Shares the system's approximately **1 kW power supply**
+- Designed to allow the HiFi and instrument amplifiers to operate simultaneously within the supply's power and thermal limits
+
+Planned audio sources include:
+
+- Locally stored digital audio
+- Vinyl
+- Bluetooth
+- AirPlay
+
+The playback signal is also routed to the CRT visualization system through a conditioned low-level signal path, allowing real-time waveform and audio-reactive visualization.
+
+When digital metadata is available, the CRT interface can also display information such as:
+
+- Track title
+- Artist
+- Album
+- Album artwork
+- Playback status
+- Other source or track metadata
