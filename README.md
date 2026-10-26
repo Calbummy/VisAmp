@@ -80,7 +80,7 @@ The system also includes a separate stereo amplifier intended for general music 
 
 - **150 W per channel into 4 Ω**
 - Operates independently from the bass/guitar amplifier
-- Shares the system's approximately **1 kW power supply**
+- Shares the system's approximately **700W - 1000W power supply**
 - Designed to allow the HiFi and instrument amplifiers to operate simultaneously within the supply's power and thermal limits
 
 Planned audio sources include:
