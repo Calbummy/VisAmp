@@ -1,13 +1,15 @@
 # VisAmp
-A cross-platform C/SDL music display system featuring a lightweight Linux runtime for embedded computers and a more feature-rich Windows previewer for customizing layouts, album art, metadata, animations, and real-time visualizers before deployment to an analog CRT through direct composite video injection. The unit also houses a combined 500W bass/guitar amplifier and a 150W HiFi stereo amplifier.
+A cross-platform C/SDL audio-visual system combining custom display software, embedded video hardware, and a modular high-power audio platform. A lightweight Linux runtime runs on a Raspberry Pi or similar embedded computer, while a more feature-rich Windows application provides a development and preview environment for configuring layouts, album art, metadata, animations, and real-time audio visualizers.
 
-The system is designed to bypass the television's RF input chain entirely, allowing a Raspberry Pi or similar computer to provide a cleaner baseband NTSC video signal directly to the CRT's video circuitry.
+Video output is designed for an analog CRT, bypassing the television's RF tuner and demodulation stages by injecting a baseband NTSC composite signal directly into the CRT's video circuitry for improved signal quality and tighter control over the displayed image.
+
+The audio subsystem consists of a modular 500 W Class-D bass/guitar amplifier and a separate 150 W stereo HiFi amplifier. The 500 W amplifier incorporates a dedicated instrument preamplifier, high-power Class-D output stage, startup muting, protection circuitry, and supporting power-supply and control systems. The modular architecture is intended to support interchangeable preamplifiers, signal processing, wireless audio, and future integration between the audio and CRT visualization systems.
 
 # Current Status
 - Programming work is paused until the Daytron DT-505A is fully operational.
 - The CRT currently suffers from minor vertical fold-over and requires a recap.
 - A composite video injection point has been identified on the DT-505A for use with the Raspberry Pi's analog video output.
-- Amp design is in the architecture phase — power stage topology and instrument switching are decided; specific preamp chips are not yet chosen.
+- 500W Combo Amp is in the schematic design — Initial Amp control/core and fault protection circuitry in place
 
   ![Initial test of SDL display with test image and waveform](projectImages/birdTestOne.png)
 Very quick initial test of SDL libraries to make sure everything works (Final version will contain substantially nicer visuals)
